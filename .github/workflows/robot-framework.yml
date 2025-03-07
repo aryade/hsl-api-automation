@@ -47,7 +47,7 @@ jobs:
         robot routing_v2Finland_GTFS_api.robot  
 
     - name: Upload test results as artifacts
-      uses: actions/upload-artifact@v2.2.3
+      uses: actions/upload-artifact@v2  # Use v2 for stability
       with:
         name: robot-test-results
-        path: output.xml  # Or path to your test result file
+        path: output.xml
