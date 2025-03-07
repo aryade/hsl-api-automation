@@ -1,0 +1,53 @@
+name: Robot Framework CI with Virtual Environment
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'  # Set the Python version here
+
+    - name: Create and activate virtual environment
+      run: |
+        python -m venv venv  # Create a virtual environment
+        source venv/bin/activate  # Activate the virtual environment
+        python --version  # Verify the Python version in the virtual environment
+
+    - name: Upgrade pip and install dependencies
+      run: |
+        source venv/bin/activate  # Activate the virtual environment
+        pip install --upgrade pip  # Upgrade pip to the latest version
+        pip install -r requirements.txt  # Install dependencies from requirements.txt
+
+    - name: Install Robot Framework and Dependencies
+      run: |
+        source venv/bin/activate  # Activate the virtual environment
+        pip install robotframework  # Install Robot Framework
+        pip install robotframework-requests  # For HTTP requests
+        pip install robotframework-jsonlibrary  # For JSON operations
+        pip install robotframework-collections  # For collection operations
+
+    - name: Run Robot Framework tests
+      run: |
+        source venv/bin/activate  # Activate the virtual environment
+        robot routing_v2Finland_GTFS_api.robot  
+
+    - name: Upload test results as artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: robot-test-results
+        path: output.xml  # Or path to your test result file
