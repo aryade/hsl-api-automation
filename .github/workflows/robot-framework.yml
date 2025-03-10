@@ -10,45 +10,44 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # Use a more stable runner image
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: '3.9'  # Set the Python version here
 
     - name: Create and activate virtual environment
       run: |
-        python -m venv venv
-        source venv/bin/activate
-        python --version
+        python -m venv venv  # Create a virtual environment
+        source venv/bin/activate  # Activate the virtual environment
+        python --version  # Verify the Python version in the virtual environment
 
     - name: Upgrade pip and install dependencies
       run: |
-        source venv/bin/activate
-        pip install --upgrade pip
-        pip install -r requirements.txt
+        source venv/bin/activate  # Activate the virtual environment
+        pip install --upgrade pip  # Upgrade pip to the latest version
+        pip install -r requirements.txt  # Install dependencies from requirements.txt
 
     - name: Install Robot Framework and Dependencies
       run: |
-        source venv/bin/activate
-        pip install robotframework
-        pip install robotframework-requests
-        pip install robotframework-jsonlibrary
-        pip install robotframework-collections
+        source venv/bin/activate  # Activate the virtual environment
+        pip install robotframework  # Install Robot Framework
+        pip install robotframework-requests  # For HTTP requests
+        pip install robotframework-jsonlibrary  # For JSON operations
+        pip install robotframework-collections  # For collection operations
 
     - name: Run Robot Framework tests
       run: |
-        source venv/bin/activate
-        robot path/to/your/testfile.robot
+        source venv/bin/activate  # Activate the virtual environment
+        robot routing_v2Finland_GTFS_api.robot
 
     - name: Upload test results as artifacts
-      uses: actions/upload-artifact@v2  # Use v2 for compatibility
+      uses: actions/upload-artifact@v3  # Use v3 for stability
       with:
         name: robot-test-results
         path: output.xml
-
