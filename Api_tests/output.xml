@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.1 on darwin)" generated="2025-03-10T14:04:44.169376" rpa="false" schemaversion="5">
+<suite id="s1" name="Routing Datav3 Finland Api" source="/Users/ganesh/hobbies/HSL_apitest/Api_tests/routing_datav3_finland_api.robot">
+<test id="s1-t1" name="Verify Routing Data Get Response" line="12">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-10T14:04:44.389130" level="TRACE">Arguments: [ 'Cache-Control=no-cache' | 'digitransit-subscription-key=${API_KEY}' ]</msg>
+<msg time="2025-03-10T14:04:44.389425" level="TRACE">Return: {'Cache-Control': 'no-cache',
+ 'digitransit-subscription-key': '3bc552f1c4764b1bae93f808697e8b0d'}</msg>
+<msg time="2025-03-10T14:04:44.389541" level="INFO">${HEADERS} = {'Cache-Control': 'no-cache', 'digitransit-subscription-key': '3bc552f1c4764b1bae93f808697e8b0d'}</msg>
+<var>${HEADERS}</var>
+<arg>Cache-Control=no-cache</arg>
+<arg>digitransit-subscription-key=${API_KEY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.389049" elapsed="0.000522"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-03-10T14:04:44.389961" level="TRACE">Arguments: [ 'digitransit' | 'https://api.digitransit.fi/routing-data/v3/finland' | headers={'Cache-Control': 'no-cache',
+ 'digitransit-subscription-key': '3bc552f1c4764b1bae93f808697e8b0d'} ]</msg>
+<msg time="2025-03-10T14:04:44.390084" level="INFO">Creating Session using : alias=digitransit, url=https://api.digitransit.fi/routing-data/v3/finland, headers={'Cache-Control': 'no-cache', 'digitransit-subscription-key': '3bc552f1c4764b1bae93f808697e8b0d'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-03-10T14:04:44.390119" level="DEBUG">Creating session: digitransit</msg>
+<msg time="2025-03-10T14:04:44.390284" level="TRACE">Return: &lt;requests.sessions.Session object at 0x1070b0200&gt;</msg>
+<arg>digitransit</arg>
+<arg>${BASE_URL}</arg>
+<arg>headers=${HEADERS}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-03-10T14:04:44.389758" elapsed="0.000574"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-10T14:04:44.390560" level="TRACE">Arguments: [ 'digitransit' | '/' | expected_status='any' ]</msg>
+<msg time="2025-03-10T14:04:44.465625" level="DEBUG">Starting new HTTPS connection (1): api.digitransit.fi:443</msg>
+<msg time="2025-03-10T14:04:44.792776" level="DEBUG">https://api.digitransit.fi:443 "GET /routing-data/v3/finland/ HTTP/1.1" 200 None</msg>
+<msg time="2025-03-10T14:04:44.793417" level="INFO">GET Request : url=https://api.digitransit.fi/routing-data/v3/finland/ 
+ path_url=/routing-data/v3/finland/ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cache-Control': 'no-cache', 'digitransit-subscription-key': '3bc552f1c4764b1bae93f808697e8b0d'} 
+ body=None 
+ </msg>
+<msg time="2025-03-10T14:04:44.793626" level="INFO">GET Response : url=https://api.digitransit.fi/routing-data/v3/finland/ 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 10 Mar 2025 12:04:44 GMT', 'Content-Type': 'text/html', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Content-Encoding': 'gzip', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS', 'Access-Control-Allow-Headers': 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Index of /&lt;/title&gt;
+&lt;style type="text/css"&gt;
+a, a:active {text-decoration: none; color: blue;}
+a:visited {color: #48468F;}
+a:hover, a:focus {text-decoration: underline; color: red;}
+body {background-color: #F5F5F5;}
+h2 {margin-bottom: 12px;}
+table {margin-left: 12px;}
+th, td { font: 90% monospace; text-align: left;}
+th { font-weight: bold; padding-right: 14px; padding-bottom: 3px;}
+td {padding-right: 14px;}
+td.s, th.s {text-align: right;}
+div.list { background-color: white; border-top: 1px solid #646464; border-bottom: 1px solid #646464; padding-top: 10px; padding-bottom: 14px;}
+div.foot { font: 90% monospace; color: #787878; padding-top: 4px;}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Index of /&lt;/h2&gt;
+&lt;div class="list"&gt;
+&lt;table summary="Directory Listing" cellpadding="0" cellspacing="0"&gt;
+&lt;thead&gt;&lt;tr&gt;&lt;th class="n"&gt;Name&lt;/th&gt;&lt;th class="m"&gt;Last Modified&lt;/th&gt;&lt;th class="s"&gt;Size&lt;/th&gt;&lt;th class="t"&gt;Type&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class="d"&gt;&lt;td class="n"&gt;&lt;a href="report/"&gt;report&lt;/a&gt;/&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 05:50:48&lt;/td&gt;&lt;td class="s"&gt;- &amp;nbsp;&lt;/td&gt;&lt;td class="t"&gt;Directory&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="FOLI-gtfs.zip"&gt;FOLI-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;11.9M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="HSL-gtfs.zip"&gt;HSL-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;60.0M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Hameenlinna-gtfs.zip"&gt;Hameenlinna-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;2.0M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Harma-gtfs.zip"&gt;Harma-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;1.6M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="IngvesSvanback-gtfs.zip"&gt;IngvesSvanback-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;86.7K&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Joensuu-gtfs.zip"&gt;Joensuu-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;1.5M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Kajaani-gtfs.zip"&gt;Kajaani-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;359.0K&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="KoivistonAuto-gtfs.zip"&gt;KoivistonAuto-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;628.2K&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Korsisaari-gtfs.zip"&gt;Korsisaari-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;0.9M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Kotka-gtfs.zip"&gt;Kotka-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;1.4M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Kouvola-gtfs.zip"&gt;Kouvola-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;1.6M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Kuopio-gtfs.zip"&gt;Kuopio-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;4.1M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="LINKKI-gtfs.zip"&gt;LINKKI-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;4.1M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Lahti-gtfs.zip"&gt;Lahti-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;3.7M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Lappeenranta-gtfs.zip"&gt;Lappeenranta-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;694.9K&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="MATKA-gtfs.zip"&gt;MATKA-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;79.7M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Mikkeli-gtfs.zip"&gt;Mikkeli-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;885.1K&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="OULU-gtfs.zip"&gt;OULU-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;2.3M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="PahkakankaanLiikenne-gtfs.zip"&gt;PahkakankaanLiikenne-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;35.5K&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="PohjolanMatka-gtfs.zip"&gt;PohjolanMatka-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;322.5K&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Pori-gtfs.zip"&gt;Pori-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;818.8K&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Raasepori-gtfs.zip"&gt;Raasepori-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;589.6K&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Rauma-gtfs.zip"&gt;Rauma-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;273.6K&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Rovaniemi-gtfs.zip"&gt;Rovaniemi-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;177.3K&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Salo-gtfs.zip"&gt;Salo-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;351.7K&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="VARELY-gtfs.zip"&gt;VARELY-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;2.3M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Vaasa-gtfs.zip"&gt;Vaasa-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;523.2K&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="Viro-gtfs.zip"&gt;Viro-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;19.5M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="build-config.json"&gt;build-config.json&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:48&lt;/td&gt;&lt;td class="s"&gt;0.7K&lt;/td&gt;&lt;td class="t"&gt;application/octet-stream&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="build.log"&gt;build.log&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 05:39:45&lt;/td&gt;&lt;td class="s"&gt;274.9K&lt;/td&gt;&lt;td class="t"&gt;text/plain&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="connected.csv"&gt;connected.csv&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 05:43:11&lt;/td&gt;&lt;td class="s"&gt;1.1M&lt;/td&gt;&lt;td class="t"&gt;application/octet-stream&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="digitraffic-gtfs.zip"&gt;digitraffic-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;4.2M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="estonia.pbf"&gt;estonia.pbf&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:49&lt;/td&gt;&lt;td class="s"&gt;108.7M&lt;/td&gt;&lt;td class="t"&gt;application/octet-stream&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="finland.pbf"&gt;finland.pbf&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:49&lt;/td&gt;&lt;td class="s"&gt;633.0M&lt;/td&gt;&lt;td class="t"&gt;application/octet-stream&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="graph-finland-d50748ff56c889201381211706a37051a39230a5.zip"&gt;graph-finland-d50748ff56c889201381211706a37051a39230a5.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 05:43:05&lt;/td&gt;&lt;td class="s"&gt;584.9M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="graph.obj"&gt;graph.obj&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 05:39:45&lt;/td&gt;&lt;td class="s"&gt;1.5G&lt;/td&gt;&lt;td class="t"&gt;application/octet-stream&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="otp-config.json"&gt;otp-config.json&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:48&lt;/td&gt;&lt;td class="s"&gt;0.3K&lt;/td&gt;&lt;td class="t"&gt;application/octet-stream&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="router-config.json"&gt;router-config.json&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:48&lt;/td&gt;&lt;td class="s"&gt;20.0K&lt;/td&gt;&lt;td class="t"&gt;application/octet-stream&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="router-finland.zip"&gt;router-finland.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 05:43:10&lt;/td&gt;&lt;td class="s"&gt;936.9M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="tampere-gtfs.zip"&gt;tampere-gtfs.zip&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 04:52:50&lt;/td&gt;&lt;td class="s"&gt;15.2M&lt;/td&gt;&lt;td class="t"&gt;application/zip&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="unconnected.csv"&gt;unconnected.csv&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 05:43:11&lt;/td&gt;&lt;td class="s"&gt;305.5K&lt;/td&gt;&lt;td class="t"&gt;application/octet-stream&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="n"&gt;&lt;a href="version.txt"&gt;version.txt&lt;/a&gt;&lt;/td&gt;&lt;td class="m"&gt;2025-Mar-10 05:39:45&lt;/td&gt;&lt;td class="s"&gt;0.1K&lt;/td&gt;&lt;td class="t"&gt;text/plain&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="foot"&gt;lighttpd/1.4.76&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;
+// &lt;!--
+
+var click_column;
+var name_column = 0;
+var date_column = 1;
+var size_column = 2;
+var type_column = 3;
+var prev_span = null;
+
+if (typeof(String.prototype.localeCompare) === 'undefined') {
+ String.prototype.localeCompare = function(str, locale, options) {
+   return ((this == str) ? 0 : ((this &gt; str) ? 1 : -1));
+ };
+}
+
+if (typeof(String.prototype.toLocaleUpperCase) === 'undefined') {
+ String.prototype.toLocaleUpperCase = function() {
+  return this.toUpperCase();
+ };
+}
+
+function get_inner_text(el) {
+ if((typeof el == 'string')||(typeof el == 'undefined'))
+  return el;
+ if(el.innerText)
+  return el.innerText;
+ else {
+  var str = "";
+  var cs = el.childNodes;
+  var l = cs.length;
+  for (var i=0;i&lt;l;i++) {
+   if (cs[i].nodeType==1) str += get_inner_text(cs[i]);
+   else if (cs[i].nodeType==3) str += cs[i].nodeValue;
+  }
+ }
+ return str;
+}
+
+function isdigit(c) {
+ return (c &gt;= '0' &amp;&amp; c &lt;= '9');
+}
+
+function unit_multiplier(unit) {
+ return (unit=='K') ? 1000
+      : (unit=='M') ? 1000000
+      : (unit=='G') ? 1000000000
+      : (unit=='T') ? 1000000000000
+      : (unit=='P') ? 1000000000000000
+      : (unit=='E') ? 1000000000000000000 : 1;
+}
+
+var li_date_regex=/(\d{4})-(\w{3})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/;
+
+var li_mon = ['Jan','Feb','Mar','Apr','May','Jun',
+              'Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function li_mon_num(mon) {
+ var i; for (i = 0; i &lt; 12 &amp;&amp; mon != li_mon[i]; ++i); return i;
+}
+
+function li_date_cmp(s1, s2) {
+ var dp1 = li_date_regex.exec(s1)
+ var dp2 = li_date_regex.exec(s2)
+ for (var i = 1; i &lt; 7; ++i) {
+  var cmp = (2 != i)
+   ? parseInt(dp1[i]) - parseInt(dp2[i])
+   : li_mon_num(dp1[2]) - li_mon_num(dp2[2]);
+  if (0 != cmp) return cmp;
+ }
+ return 0;
+}
+
+function sortfn_then_by_name(a,b,sort_column) {
+ if (sort_column == name_column || sort_column == type_column) {
+  var ad = (a.cells[type_column].innerHTML === 'Directory');
+  var bd = (b.cells[type_column].innerHTML === 'Directory');
+  if (ad != bd) return (ad ? -1 : 1);
+ }
+ var at = get_inner_text(a.cells[sort_column]);
+ var bt = get_inner_text(b.cells[sort_column]);
+ var cmp;
+ if (sort_column == name_column) {
+  if (at == '../') return -1;
+  if (bt == '../') return  1;
+ }
+ if (a.cells[sort_column].className == 'int') {
+  cmp = parseInt(at)-parseInt(bt);
+ } else if (sort_column == date_column) {
+  var ad = isdigit(at.substr(0,1));
+  var bd = isdigit(bt.substr(0,1));
+  if (ad != bd) return (!ad ? -1 : 1);
+  cmp = li_date_cmp(at,bt);
+ } else if (sort_column == size_column) {
+  var ai = parseInt(at, 10) * unit_multiplier(at.substr(-1,1));
+  var bi = parseInt(bt, 10) * unit_multiplier(bt.substr(-1,1));
+  if (at.substr(0,1) == '-') ai = -1;
+  if (bt.substr(0,1) == '-') bi = -1;
+  cmp = ai - bi;
+ } else {
+  cmp = at.toLocaleUpperCase().localeCompare(bt.toLocaleUpperCase());
+  if (0 != cmp) return cmp;
+  cmp = at.localeCompare(bt);
+ }
+ if (0 != cmp || sort_column == name_column) return cmp;
+ return sortfn_then_by_name(a,b,name_column);
+}
+
+function sortfn(a,b) {
+ return sortfn_then_by_name(a,b,click_column);
+}
+
+function resort(lnk) {
+ var span = lnk.childNodes[1];
+ var table = lnk.parentNode.parentNode.parentNode.parentNode;
+ var rows = new Array();
+ for (var j=1;j&lt;table.rows.length;j++)
+  rows[j-1] = table.rows[j];
+ click_column = lnk.parentNode.cellIndex;
+ rows.sort(sortfn);
+
+ if (prev_span != null) prev_span.innerHTML = '';
+ if (span.getAttribute('sortdir')=='down') {
+  span.innerHTML = '&amp;uarr;';
+  span.setAttribute('sortdir','up');
+  rows.reverse();
+ } else {
+  span.innerHTML = '&amp;darr;';
+  span.setAttribute('sortdir','down');
+ }
+ for (var i=0;i&lt;rows.length;i++)
+  table.tBodies[0].appendChild(rows[i]);
+ prev_span = span;
+}
+
+function init_sort(init_sort_column, ascending) {
+ var tables = document.getElementsByTagName("table");
+ for (var i = 0; i &lt; tables.length; i++) {
+  var table = tables[i];
+  //var c = table.getAttribute("class")
+  //if (-1 != c.split(" ").indexOf("sort")) {
+   var row = table.rows[0].cells;
+   for (var j = 0; j &lt; row.length; j++) {
+    var n = row[j];
+    if (n.childNodes.length == 1 &amp;&amp; n.childNodes[0].nodeType == 3) {
+     var link = document.createElement("a");
+     var title = n.childNodes[0].nodeValue.replace(/:$/, "");
+     link.appendChild(document.createTextNode(title));
+     link.setAttribute("href", "#");
+     link.setAttribute("class", "sortheader");
+     link.setAttribute("onclick", "resort(this);return false;");
+     var arrow = document.createElement("span");
+     arrow.setAttribute("class", "sortarrow");
+     arrow.appendChild(document.createTextNode(":"));
+     link.appendChild(arrow)
+     n.replaceChild(link, n.firstChild);
+    }
+   }
+   var lnk = row[init_sort_column].firstChild;
+   if (ascending) {
+    var span = lnk.childNodes[1];
+    span.setAttribute('sortdir','down');
+   }
+   resort(lnk);
+  //}
+ }
+}
+
+function init_sort_from_query() {
+  var urlParams = new URLSearchParams(location.search);
+  var c = 0;
+  var o = 0;
+  switch (urlParams.get('C')) {
+    case "N": c=0; break;
+    case "M": c=1; break;
+    case "S": c=2; break;
+    case "T":
+    case "D": c=3; break;
+  }
+  switch (urlParams.get('O')) {
+    case "A": o=1; break;
+    case "D": o=0; break;
+  }
+  init_sort(c,o);
+}
+init_sort_from_query();
+
+// --&gt;
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-03-10T14:04:44.794197" level="INFO">/Users/ganesh/hobbies/HSL_apitest/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.digitransit.fi'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-03-10T14:04:44.794315" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg time="2025-03-10T14:04:44.794481" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>digitransit</arg>
+<arg>/</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.390485" elapsed="0.404099"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-03-10T14:04:44.795908" level="TRACE">Arguments: [ 200 | '200' ]</msg>
+<msg time="2025-03-10T14:04:44.796125" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2025-03-10T14:04:44.796250" level="TRACE">Return: None</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.795096" elapsed="0.001214"/>
+</kw>
+<doc>Validate API returns a successful response (200)</doc>
+<status status="PASS" start="2025-03-10T14:04:44.388056" elapsed="0.408615"/>
+</test>
+<test id="s1-t2" name="Verify API Handles Invalid Request" line="23">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-10T14:04:44.797636" level="TRACE">Arguments: [ 'Cache-Control=no-cache' | 'digitransit-subscription-key=${API_KEY}' ]</msg>
+<msg time="2025-03-10T14:04:44.797909" level="TRACE">Return: {'Cache-Control': 'no-cache',
+ 'digitransit-subscription-key': '3bc552f1c4764b1bae93f808697e8b0d'}</msg>
+<msg time="2025-03-10T14:04:44.798045" level="INFO">${HEADERS} = {'Cache-Control': 'no-cache', 'digitransit-subscription-key': '3bc552f1c4764b1bae93f808697e8b0d'}</msg>
+<var>${HEADERS}</var>
+<arg>Cache-Control=no-cache</arg>
+<arg>digitransit-subscription-key=${API_KEY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.797548" elapsed="0.000536"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-10T14:04:44.798394" level="TRACE">Arguments: [ 'digitransit' | '/invalid-endpoint' | expected_status='any' ]</msg>
+<msg time="2025-03-10T14:04:44.865883" level="DEBUG">https://api.digitransit.fi:443 "GET /routing-data/v3/finland/invalid-endpoint HTTP/1.1" 404 158</msg>
+<msg time="2025-03-10T14:04:44.866354" level="INFO">GET Request : url=https://api.digitransit.fi/routing-data/v3/finland/invalid-endpoint 
+ path_url=/routing-data/v3/finland/invalid-endpoint 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cache-Control': 'no-cache', 'digitransit-subscription-key': '3bc552f1c4764b1bae93f808697e8b0d'} 
+ body=None 
+ </msg>
+<msg time="2025-03-10T14:04:44.866456" level="INFO">GET Response : url=https://api.digitransit.fi/routing-data/v3/finland/invalid-endpoint 
+ status=404, reason=Not Found 
+ headers={'Date': 'Mon, 10 Mar 2025 12:04:44 GMT', 'Content-Type': 'text/html', 'Content-Length': '158', 'Connection': 'keep-alive'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+ &lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;title&gt;404 Not Found&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  &lt;h1&gt;404 Not Found&lt;/h1&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-03-10T14:04:44.866568" level="INFO">/Users/ganesh/hobbies/HSL_apitest/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.digitransit.fi'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-03-10T14:04:44.866678" level="TRACE">Return: &lt;Response [404]&gt;</msg>
+<msg time="2025-03-10T14:04:44.866828" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>digitransit</arg>
+<arg>/invalid-endpoint</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.798292" elapsed="0.068582"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-03-10T14:04:44.867865" level="TRACE">Arguments: [ 404 ]</msg>
+<msg time="2025-03-10T14:04:44.867968" level="DEBUG">Argument types are:
+&lt;class 'int'&gt;</msg>
+<msg time="2025-03-10T14:04:44.868024" level="TRACE">Return: 404.0</msg>
+<msg time="2025-03-10T14:04:44.868122" level="INFO">${status_code} = 404.0</msg>
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.867164" elapsed="0.000993"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-03-10T14:04:44.868691" level="TRACE">Arguments: [ '404.0 == 400 or 404.0 == 404' | 'Expected 400 or 404 but got 404.0' ]</msg>
+<msg time="2025-03-10T14:04:44.868856" level="TRACE">Return: None</msg>
+<arg>${status_code} == 400 or ${status_code} == 404</arg>
+<arg>Expected 400 or 404 but got ${status_code}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.868349" elapsed="0.000564"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-03-10T14:04:44.869599" level="TRACE">Arguments: [ {'Date': 'Mon, 10 Mar 2025 12:04:44 GMT', 'Content-Type': 'text/html', 'Content-Length': '158', 'Connection': 'keep-alive'} | 'Content-Type' ]</msg>
+<msg time="2025-03-10T14:04:44.869732" level="TRACE">Return: 'text/html'</msg>
+<msg time="2025-03-10T14:04:44.869825" level="INFO">${content_type} = text/html</msg>
+<var>${content_type}</var>
+<arg>${response.headers}</arg>
+<arg>Content-Type</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.869100" elapsed="0.000761"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-03-10T14:04:44.870193" level="TRACE">Arguments: [ '"application/json" in "text/html"' ]</msg>
+<msg time="2025-03-10T14:04:44.870319" level="TRACE">Return: False</msg>
+<msg time="2025-03-10T14:04:44.870412" level="INFO">${is_json} = False</msg>
+<var>${is_json}</var>
+<arg>"application/json" in "${content_type}"</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.870051" elapsed="0.000396"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<msg time="2025-03-10T14:04:44.870750" level="TRACE">Arguments: [ False | 'Validate JSON Error Response' | '${response.text}' ]</msg>
+<msg time="2025-03-10T14:04:44.870844" level="TRACE">Return: None</msg>
+<arg>${is_json}</arg>
+<arg>Validate JSON Error Response</arg>
+<arg>${response.text}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.870637" elapsed="0.000254"/>
+</kw>
+<doc>Ensure API returns a 400 or 404 error for an invalid query</doc>
+<status status="PASS" start="2025-03-10T14:04:44.796985" elapsed="0.074096"/>
+</test>
+<test id="s1-t3" name="Verify API Response Time" line="42">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-10T14:04:44.872117" level="TRACE">Arguments: [ 'query=query { agencies { id name url } }' ]</msg>
+<msg time="2025-03-10T14:04:44.872286" level="TRACE">Return: {'query': 'query { agencies { id name url } }'}</msg>
+<msg time="2025-03-10T14:04:44.872396" level="INFO">${QUERY} = {'query': 'query { agencies { id name url } }'}</msg>
+<var>${QUERY}</var>
+<arg>query=query { agencies { id name url } }</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.872041" elapsed="0.000392"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-10T14:04:44.872888" level="TRACE">Arguments: [ 'digitransit' | '/' | json={'query': 'query { agencies { id name url } }'} | expected_status='any' ]</msg>
+<msg time="2025-03-10T14:04:44.943309" level="DEBUG">https://api.digitransit.fi:443 "POST /routing-data/v3/finland/ HTTP/1.1" 404 54</msg>
+<msg time="2025-03-10T14:04:44.943895" level="INFO">POST Request : url=https://api.digitransit.fi/routing-data/v3/finland/ 
+ path_url=/routing-data/v3/finland/ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cache-Control': 'no-cache', 'digitransit-subscription-key': '3bc552f1c4764b1bae93f808697e8b0d', 'Content-Length': '47', 'Content-Type': 'application/json'} 
+ body=b'{"query": "query { agencies { id name url } }"}' 
+ </msg>
+<msg time="2025-03-10T14:04:44.944008" level="INFO">POST Response : url=https://api.digitransit.fi/routing-data/v3/finland/ 
+ status=404, reason=Resource Not Found 
+ headers={'Date': 'Mon, 10 Mar 2025 12:04:45 GMT', 'Content-Type': 'application/json', 'Content-Length': '54', 'Connection': 'keep-alive', 'ErrorSource': 'configuration', 'ErrorReason': 'OperationNotFound', 'ErrorMessage': 'Unable to match incoming request to an operation.', 'ErrorSection': 'backend', 'ErrorStatusCode': '404'} 
+ body={ "statusCode": 404, "message": "Resource not found" } 
+ </msg>
+<msg time="2025-03-10T14:04:44.944128" level="INFO">/Users/ganesh/hobbies/HSL_apitest/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.digitransit.fi'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-03-10T14:04:44.944228" level="TRACE">Return: &lt;Response [404]&gt;</msg>
+<msg time="2025-03-10T14:04:44.944507" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>digitransit</arg>
+<arg>/</arg>
+<arg>json=${QUERY}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.872710" elapsed="0.071873"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-03-10T14:04:44.945848" level="TRACE">Arguments: [ 0.068728 ]</msg>
+<msg time="2025-03-10T14:04:44.946000" level="DEBUG">Argument types are:
+&lt;class 'float'&gt;</msg>
+<msg time="2025-03-10T14:04:44.946072" level="TRACE">Return: 0.068728</msg>
+<msg time="2025-03-10T14:04:44.946191" level="INFO">${elapsed_time} = 0.068728</msg>
+<var>${elapsed_time}</var>
+<arg>${response.elapsed.total_seconds()}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.945172" elapsed="0.001775"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-03-10T14:04:44.947550" level="TRACE">Arguments: [ '0.068728 &lt; 2' | 'API took too long to respond! (0.068728s)' ]</msg>
+<msg time="2025-03-10T14:04:44.947728" level="TRACE">Return: None</msg>
+<arg>${elapsed_time} &lt; ${TIMEOUT}</arg>
+<arg>API took too long to respond! (${elapsed_time}s)</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.947251" elapsed="0.000539"/>
+</kw>
+<doc>Ensure API responds within 2 seconds.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.871388" elapsed="0.076642"/>
+</test>
+<test id="s1-t4" name="Verify Missing API Key Handling" line="51">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-10T14:04:44.949030" level="TRACE">Arguments: [ 'Cache-Control=no-cache' ]</msg>
+<msg time="2025-03-10T14:04:44.949197" level="TRACE">Return: {'Cache-Control': 'no-cache'}</msg>
+<msg time="2025-03-10T14:04:44.949310" level="INFO">${HEADERS} = {'Cache-Control': 'no-cache'}</msg>
+<var>${HEADERS}</var>
+<arg>Cache-Control=no-cache</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.948947" elapsed="0.000400"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-03-10T14:04:44.949776" level="TRACE">Arguments: [ 'digitransit_no_key' | 'https://api.digitransit.fi/routing-data/v3/finland' | headers={'Cache-Control': 'no-cache'} ]</msg>
+<msg time="2025-03-10T14:04:44.949895" level="INFO">Creating Session using : alias=digitransit_no_key, url=https://api.digitransit.fi/routing-data/v3/finland, headers={'Cache-Control': 'no-cache'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-03-10T14:04:44.949939" level="DEBUG">Creating session: digitransit_no_key</msg>
+<msg time="2025-03-10T14:04:44.950114" level="TRACE">Return: &lt;requests.sessions.Session object at 0x1070b2ba0&gt;</msg>
+<arg>digitransit_no_key</arg>
+<arg>${BASE_URL}</arg>
+<arg>headers=${HEADERS}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-03-10T14:04:44.949536" elapsed="0.000638"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-10T14:04:44.950465" level="TRACE">Arguments: [ 'digitransit_no_key' | '/' | expected_status='any' ]</msg>
+<msg time="2025-03-10T14:04:44.952726" level="DEBUG">Starting new HTTPS connection (1): api.digitransit.fi:443</msg>
+<msg time="2025-03-10T14:04:45.253422" level="DEBUG">https://api.digitransit.fi:443 "GET /routing-data/v3/finland/ HTTP/1.1" 401 152</msg>
+<msg time="2025-03-10T14:04:45.253804" level="INFO">GET Request : url=https://api.digitransit.fi/routing-data/v3/finland/ 
+ path_url=/routing-data/v3/finland/ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cache-Control': 'no-cache'} 
+ body=None 
+ </msg>
+<msg time="2025-03-10T14:04:45.253908" level="INFO">GET Response : url=https://api.digitransit.fi/routing-data/v3/finland/ 
+ status=401, reason=Access Denied 
+ headers={'Date': 'Mon, 10 Mar 2025 12:04:45 GMT', 'Content-Type': 'application/json', 'Content-Length': '152', 'Connection': 'keep-alive', 'ErrorSource': 'authorization', 'ErrorReason': 'SubscriptionKeyNotFound', 'ErrorMessage': 'Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API.', 'ErrorSection': 'backend', 'ErrorStatusCode': '401', 'WWW-Authenticate': 'AzureApiManagementKey realm="https://api.digitransit.fi/routing-data",name="digitransit-subscription-key",type="header"'} 
+ body={ "statusCode": 401, "message": "Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API." } 
+ </msg>
+<msg time="2025-03-10T14:04:45.254006" level="INFO">/Users/ganesh/hobbies/HSL_apitest/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.digitransit.fi'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-03-10T14:04:45.254110" level="TRACE">Return: &lt;Response [401]&gt;</msg>
+<msg time="2025-03-10T14:04:45.254304" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<var>${response}</var>
+<arg>digitransit_no_key</arg>
+<arg>/</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-10T14:04:44.950362" elapsed="0.304020"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-03-10T14:04:45.255985" level="TRACE">Arguments: [ 401 ]</msg>
+<msg time="2025-03-10T14:04:45.256259" level="DEBUG">Argument types are:
+&lt;class 'int'&gt;</msg>
+<msg time="2025-03-10T14:04:45.256547" level="TRACE">Return: 401.0</msg>
+<msg time="2025-03-10T14:04:45.256749" level="INFO">${status_code} = 401.0</msg>
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-03-10T14:04:45.254935" elapsed="0.001993"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-03-10T14:04:45.257826" level="TRACE">Arguments: [ 401.0 | '401' | 'Expected 403 Unauthorized but got 401.0' ]</msg>
+<msg time="2025-03-10T14:04:45.258488" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2025-03-10T14:04:45.259088" level="TRACE">Return: None</msg>
+<arg>${status_code}</arg>
+<arg>401</arg>
+<arg>Expected 403 Unauthorized but got ${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-03-10T14:04:45.257417" elapsed="0.001807"/>
+</kw>
+<doc>Ensure API returns an authentication error when no API key is provided</doc>
+<status status="PASS" start="2025-03-10T14:04:44.948371" elapsed="0.311198"/>
+</test>
+<test id="s1-t5" name="Verify Invalid Method Usage" line="61">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-10T14:04:45.261310" level="TRACE">Arguments: [ 'Cache-Control=no-cache' | 'digitransit-subscription-key=${API_KEY}' ]</msg>
+<msg time="2025-03-10T14:04:45.261999" level="TRACE">Return: {'Cache-Control': 'no-cache',
+ 'digitransit-subscription-key': '3bc552f1c4764b1bae93f808697e8b0d'}</msg>
+<msg time="2025-03-10T14:04:45.262181" level="INFO">${HEADERS} = {'Cache-Control': 'no-cache', 'digitransit-subscription-key': '3bc552f1c4764b1bae93f808697e8b0d'}</msg>
+<var>${HEADERS}</var>
+<arg>Cache-Control=no-cache</arg>
+<arg>digitransit-subscription-key=${API_KEY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-10T14:04:45.261169" elapsed="0.001055"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-03-10T14:04:45.262717" level="TRACE">Arguments: [ 'digitransit' | '/' | expected_status='any' ]</msg>
+<msg time="2025-03-10T14:04:45.330930" level="DEBUG">https://api.digitransit.fi:443 "DELETE /routing-data/v3/finland/ HTTP/1.1" 404 54</msg>
+<msg time="2025-03-10T14:04:45.331314" level="INFO">DELETE Request : url=https://api.digitransit.fi/routing-data/v3/finland/ 
+ path_url=/routing-data/v3/finland/ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cache-Control': 'no-cache', 'digitransit-subscription-key': '3bc552f1c4764b1bae93f808697e8b0d', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-03-10T14:04:45.331414" level="INFO">DELETE Response : url=https://api.digitransit.fi/routing-data/v3/finland/ 
+ status=404, reason=Resource Not Found 
+ headers={'Date': 'Mon, 10 Mar 2025 12:04:45 GMT', 'Content-Type': 'application/json', 'Content-Length': '54', 'Connection': 'keep-alive', 'ErrorSource': 'configuration', 'ErrorReason': 'OperationNotFound', 'ErrorMessage': 'Unable to match incoming request to an operation.', 'ErrorSection': 'backend', 'ErrorStatusCode': '404'} 
+ body={ "statusCode": 404, "message": "Resource not found" } 
+ </msg>
+<msg time="2025-03-10T14:04:45.331507" level="INFO">/Users/ganesh/hobbies/HSL_apitest/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.digitransit.fi'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-03-10T14:04:45.331605" level="TRACE">Return: &lt;Response [404]&gt;</msg>
+<msg time="2025-03-10T14:04:45.331752" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>digitransit</arg>
+<arg>/</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-10T14:04:45.262479" elapsed="0.069319"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-03-10T14:04:45.332739" level="TRACE">Arguments: [ 404 ]</msg>
+<msg time="2025-03-10T14:04:45.332860" level="DEBUG">Argument types are:
+&lt;class 'int'&gt;</msg>
+<msg time="2025-03-10T14:04:45.332926" level="TRACE">Return: 404.0</msg>
+<msg time="2025-03-10T14:04:45.333037" level="INFO">${status_code} = 404.0</msg>
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-03-10T14:04:45.332090" elapsed="0.000996"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-03-10T14:04:45.333507" level="TRACE">Arguments: [ 404.0 | '404' | 'Expected 405 Method Not Allowed but got 404.0' ]</msg>
+<msg time="2025-03-10T14:04:45.333607" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2025-03-10T14:04:45.333670" level="TRACE">Return: None</msg>
+<arg>${status_code}</arg>
+<arg>404</arg>
+<arg>Expected 405 Method Not Allowed but got ${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-03-10T14:04:45.333297" elapsed="0.000421"/>
+</kw>
+<doc>Ensure API returns 405 when using an unsupported HTTP method</doc>
+<status status="PASS" start="2025-03-10T14:04:45.260143" elapsed="0.073759"/>
+</test>
+<status status="PASS" start="2025-03-10T14:04:44.173016" elapsed="1.161374"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Routing Datav3 Finland Api" id="s1" pass="5" fail="0" skip="0">Routing Datav3 Finland Api</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

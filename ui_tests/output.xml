@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.1 on darwin)" generated="2025-03-10T10:35:18.998321" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Page" source="/Users/ganesh/hobbies/HSL_apitest/ui_tests/login_page.robot">
+<test id="s1-t1" name="Verify HSL Login Page" line="11">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-10T10:35:19.536201" level="INFO">Opening browser 'Chrome' to base url 'https://www.hsl.fi/en/hsl/open-data'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-10T10:35:19.535889" elapsed="8.186654"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-10T10:35:27.736016" elapsed="0.264284"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${login}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-10T10:35:28.000652" elapsed="0.529756"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-10T10:35:28.531254" level="INFO">Clicking element 'xpath://span[@class='UserMenu_buttonText__kpbQy']'.</msg>
+<arg>${login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-10T10:35:28.530733" elapsed="1.254312"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-10T10:35:29.785468" elapsed="0.197073"/>
+</kw>
+<status status="PASS" start="2025-03-10T10:35:19.534713" elapsed="10.448203"/>
+</test>
+<status status="PASS" start="2025-03-10T10:35:19.000846" elapsed="10.982790"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login Page" id="s1" pass="1" fail="0" skip="0">Login Page</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

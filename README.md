@@ -1,19 +1,105 @@
-## Routing API ##
-The Routing API provides a way to plan itineraries and query public transportation-related information, such as stops, routes, and timetables, using GraphQL. This API contains data for Finland and Estonia.
+# Test Automation Suite
 
-### Test Scenarios: ###
-1. Verify GraphQL API Response
-Objective: To test if a valid GraphQL query returns a successful response with a 200 status code.
-Description: A simple query will be sent to fetch details about agencies. The status code of the response is then validated to ensure it equals 200.
+This project contains automated test cases for validating the **Digitransit APIs** and the **HSL UI** using Robot Framework. The tests cover various API endpoints for the Digitransit service and also perform basic UI testing on the HSL website.
 
-2. Verify API Response Time
-Objective: To ensure the API responds within an acceptable time limit (2 seconds).
-Description: A GraphQL query is sent, and the response time is measured to ensure it is below the threshold.
+## Test Files (API & UI)
 
-3. Verify API Handles Invalid Request
-Objective: To test how the API handles invalid GraphQL queries and returns an error response.
-Description: A query with an invalid field is sent. The API is expected to return a response containing an errors key indicating the invalid query, but not a 400 status code. The test checks if the response includes errors.
+### API Test Cases
 
-4. Verify GTFS Routes
-Objective: To test if the routes data can be fetched from the GTFS endpoint.
-Description: A query is sent to fetch route details from the API. The response is checked to ensure that it includes the routes data.
+#### Key Libraries:
+- `RequestsLibrary`: For sending HTTP requests.
+- `Collections`: For handling data extraction from dictionaries and lists.
+- `JSONLibrary`: For parsing JSON responses.
+
+### 1.Routing v2 Finland GTFS - v1
+
+#### Overview:
+These tests validate the functionality of the Routing v2 Finland GTFS - v1 APIs, focusing on endpoints for GraphQL queries and routing data.
+
+#### Test Suite:
+- **Verify GraphQL API Response**: Sends a GraphQL query to validate the response for agencies' data.
+- **Verify API Response Time**: Validates the response time from the API, ensuring it responds within 2 seconds.
+- **Verify API Handles Invalid Request**: Tests how the API handles an invalid query by checking for a 400 error.
+- **Verify GTFS Routes**: Fetches routes data from the GTFS endpoint and validates the response.
+
+
+### 2.Routing Data v3-v3
+
+#### Overview:
+These tests validate the Routing Data API provided by Digitransit, ensuring correct responses and behavior under different scenarios.
+
+#### Test Suite:
+- **Verify Routing Data Get Response**: Validates a successful GET response from the routing endpoint.
+- **Verify API Handles Invalid Request**: Ensures that invalid requests return 400 or 404 errors.
+- **Verify API Response Time**: Ensures that the API responds within a specified timeout.
+- **Verify Missing API Key Handling**: Verifies that the API returns a 401 Unauthorized error when the API key is missing.
+- **Verify Invalid Method Usage**: Tests how the API responds when an unsupported HTTP method is used.
+
+
+
+### UI Test Case
+
+#### Key Libraries:
+- `SeleniumLibrary`: For browser automation and interaction with UI elements.
+### 1. HSL Login Page
+
+#### Overview:
+This test suite performs a simple UI validation on the HSL website, focusing on login page functionality.
+
+#### Test Suite:
+- **Verify HSL Login Page**: Opens the HSL website, waits for the login button to appear, and clicks the login button.
+
+
+
+
+## Prerequisites
+
+Before running these test cases, ensure the following:
+
+1. **Robot Framework Installation**:
+
+   pip install robotframework
+
+
+2. **Library Installation**:
+   Install the required libraries for both API and UI tests:
+
+
+   pip install robotframework-requests
+   pip install robotframework-seleniumlibrary
+   pip install robotframework-jsonlibrary
+
+
+3. **Selenium WebDriver**:
+   For the UI tests, you need a web driver (e.g., ChromeDriver for Chrome)
+
+4. **API Key**:
+   Ensure you have a valid API key for Digitransit (as used in the test scripts). Replace `${API_KEY}` in the variables section with your valid API key.
+
+## Running the Tests
+
+### Running API Tests
+
+To run the API test cases for Digitransit, use the following command:
+
+robot api_tests/routing_datav3_finland_api.robot
+robot api_tests/routing_v2Finland_GTFS_api.robot
+
+
+
+### Running UI Test
+
+To run the UI test case for the HSL login page, use the following command:
+
+
+robot ui_test/login_page.robot
+robot ticket_and_fares_page.robot
+
+## Reporting
+
+Robot Framework generates a report and log by default after each test run. After execution, you will find the following files:
+
+- `report.html`: A summary of the test run with overall results.
+- `log.html`: A detailed log of the test run, including test steps and outcomes.
+- `output.xml`: A machine-readable file with the test results (useful for CI/CD pipelines).
+
