@@ -68,15 +68,10 @@ Verify GTFS Routes
     ${response}=    POST On Session    digitransit    /    json=${QUERY}
     #Log To Console    Response: ${response.text}
     Should Be Equal As Numbers    ${response.status_code}    200    # Validate HTTP Status Code
-
-    # Convert JSON response
     ${json_data} =    Convert String To Json    ${response.text}
-
-    # Extract 'data' field
-    ${data} =    Collections.Get From Dictionary    ${json_data}    data
-
-    # Extract 'agencies' list and validate
-    ${agencies} =    Collections.Get From Dictionary    ${data}    agencies
+    ${data} =    Collections.Get From Dictionary    ${json_data}    data    # Extract 'data' field
+    
+    ${agencies} =    Collections.Get From Dictionary    ${data}    agencies    # Extract 'agencies' list and validate
     Should Not Be Empty    ${agencies}    No agencies found in the response.
 
     # Extract first agency

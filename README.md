@@ -92,8 +92,8 @@ robot api_tests/routing_v2Finland_GTFS_api.robot
 To run the UI test case for the HSL login page, use the following command:
 
 
-robot ui_test/login_page.robot
-robot ticket_and_fares_page.robot
+robot ui_tests/login_page.robot
+robot ui_tests/ticket_and_fares_page.robot
 
 ## Reporting
 
