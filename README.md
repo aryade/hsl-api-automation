@@ -97,7 +97,7 @@ robot ui_tests/ticket_and_fares_page.robot
 
 ## Reporting
 
-Robot Framework generates a report and log by default after each test run. After execution, you will find the following files:
+Robot Framework generates a report and log by after each test run. After execution, you will find the following files:
 
 - `report.html`: A summary of the test run with overall results.
 - `log.html`: A detailed log of the test run, including test steps and outcomes.

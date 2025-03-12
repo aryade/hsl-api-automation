@@ -70,15 +70,17 @@ Verify GTFS Routes
     Should Be Equal As Numbers    ${response.status_code}    200    # Validate HTTP Status Code
     ${json_data} =    Convert String To Json    ${response.text}
     ${data} =    Collections.Get From Dictionary    ${json_data}    data    # Extract 'data' field
-    
+
     ${agencies} =    Collections.Get From Dictionary    ${data}    agencies    # Extract 'agencies' list and validate
     Should Not Be Empty    ${agencies}    No agencies found in the response.
 
     # Extract first agency
     ${first_agency} =    Collections.Get From List    ${agencies}    0
+    #Log To Console    first angency: ${first_agency}
 
     # Extract 'routes' and validate
     ${routes} =    Collections.Get From Dictionary    ${first_agency}    routes
+    #Log To Console    route: ${routes}
     Should Not Be Empty    ${routes}    Routes should not be empty.
 
     # Log the number of routes found
