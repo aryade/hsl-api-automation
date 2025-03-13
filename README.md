@@ -48,6 +48,7 @@ This test suite performs a simple UI validation on the HSL website, focusing on 
 
 #### Test Suite:
 - **Verify HSL Login Page**: Opens the HSL website, waits for the login button to appear, and clicks the login button.
+- **Verify Single Tickets & Fare Page**: Opens the HSL Website, and click on the single ticket and Verify the Ticket.
 
 
 

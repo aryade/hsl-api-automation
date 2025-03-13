@@ -15,6 +15,9 @@ ${single_ticket}    xpath://div[contains(text(),'Single tickets')]
 ${cookie_popup}    xpath://div[@id='coiConsentBannerBase']
 ${cookie_accept}    xpath://button[@onclick='CookieInformation.declineAllCategories()']
 ${singleticket_page}    xpath://div[contains(text(),'Single tickets')]
+${customer_group_dropdown}    xpath://button[@id='customer-group-toggle-button']
+${adult_customer}    xpath://li[@id='customer-group-item-0']
+${child_customer}    xpath://li[@id='customer-group-item-1']
 
 *** Keywords ***
 Open HSL Page In The Browser
@@ -50,3 +53,16 @@ Open Single Ticket Page
     Click Element    ${single_ticket}
     Wait Until Element Is Visible    ${singleticket_page}
     Sleep    5s
+
+Verify the Customer Group in the DropDown
+    Wait Until Element Is Visible    ${customer_group_dropdown}
+    Click Element    ${customer_group_dropdown}
+
+
+Select Adult From the Customer Group
+    Wait Until Element Is Visible    ${adult_customer}
+    Click Element    ${adult_customer}
+
+Select Child From the Customer Group
+    Wait Until Element Is Visible    ${child_customer}
+    Click Element    ${child_customer}

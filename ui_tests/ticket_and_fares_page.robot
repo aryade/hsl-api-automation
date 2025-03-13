@@ -11,4 +11,6 @@ Verify Single Tickets & Fare Page
     Open Tickets And Fares Page
     Manage Cookies
     Open Single Ticket Page
+    Verify the Customer Group in the DropDown
+    Select Child From the Customer Group
     [Teardown]    Close Browser
