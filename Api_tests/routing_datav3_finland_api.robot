@@ -1,4 +1,6 @@
 *** Settings ***
+Documentation    This suite validates the Digitransit API for routing data. It covers:1. Verifying successful API responses (200). 2. Handling invalid requests (400/404).
+# 3. Response time within the specified timeout. 4. Missing API key handling (401). 5. Invalid method usage (405).
 Library           RequestsLibrary
 Library           Collections
 Library           JSONLibrary
@@ -47,7 +49,7 @@ Verify API Response Time
     ${response}=    POST On Session    digitransit    /    json=${QUERY}    expected_status=any
     ${elapsed_time}=    Convert To Number    ${response.elapsed.total_seconds()}
     Should Be True    ${elapsed_time} < ${TIMEOUT}    API took too long to respond! (${elapsed_time}s)
-    
+
 
 Verify Missing API Key Handling
     [Documentation]    Ensure API returns an authentication error when no API key is provided

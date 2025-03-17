@@ -1,4 +1,7 @@
 *** Settings ***
+Documentation    This suite validates the Digitransit GraphQL and GTFS API for: 1. Verifying GraphQL query response (status 200). 2. Checking API response time (within 2 seconds).
+# 3. Handling invalid queries (400 error). 4. Fetching and validating GTFS routes data.
+
 Library           RequestsLibrary
 Library           Collections
 Library           JSONLibrary
